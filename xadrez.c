@@ -1,32 +1,106 @@
 #include <stdio.h>
 
-// Desafio de Xadrez - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
-// O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
+// ===============================================
+// Função Recursiva - Movimento do Bispo
+// ===============================================
+void moverBispoRecursivo(int casas) {
+    if (casas <= 0) {
+        return; // Condição de parada
+    }
+
+    printf("Cima Direita\n");
+    moverBispoRecursivo(casas - 1);
+}
 
 int main() {
-    // Nível Novato - Movimentação das Peças
-    // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
 
-    // Implementação de Movimentação do Bispo
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação do Bispo em diagonal.
+    // ===============================================
+    // NÍVEL NOVATO - Movimentação das Peças
+    // ===============================================
 
-    // Implementação de Movimentação da Torre
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Torre para a direita.
+    const int CASAS_BISPO = 5;
+    const int CASAS_TORRE = 5;
+    const int CASAS_RAINHA = 8;
 
-    // Implementação de Movimentação da Rainha
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Rainha para a esquerda.
+    int i;
 
-    // Nível Aventureiro - Movimentação do Cavalo
-    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
-    // Um loop pode representar a movimentação horizontal e outro vertical.
+    // -----------------------------------------------
+    // Movimentação do Bispo (Diagonal - While)
+    // -----------------------------------------------
+    printf("=== Movimento do Bispo (While) ===\n");
 
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
+    int contadorBispo = 1;
+    while (contadorBispo <= CASAS_BISPO) {
+        printf("Cima Direita\n");
+        contadorBispo++;
+    }
 
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
+    // -----------------------------------------------
+    // Movimentação da Torre (Direita - For)
+    // -----------------------------------------------
+    printf("\n=== Movimento da Torre (For) ===\n");
+
+    for (i = 1; i <= CASAS_TORRE; i++) {
+        printf("Direita\n");
+    }
+
+    // -----------------------------------------------
+    // Movimentação da Rainha (Esquerda - Do-While)
+    // -----------------------------------------------
+    printf("\n=== Movimento da Rainha (Do-While) ===\n");
+
+    int contadorRainha = 1;
+    do {
+        printf("Esquerda\n");
+        contadorRainha++;
+    } while (contadorRainha <= CASAS_RAINHA);
+
+
+    // ===============================================
+    // NÍVEL AVENTUREIRO - Movimento do Cavalo
+    // Movimento em "L" (2 casas horizontal + 1 vertical)
+    // Utilizando loops aninhados
+    // ===============================================
+
+    printf("\n=== Movimento do Cavalo (Loops Aninhados) ===\n");
+
+    int horizontal, vertical;
+
+    for (horizontal = 1; horizontal <= 2; horizontal++) {
+        printf("Direita\n");
+
+        for (vertical = 1; vertical <= 1; vertical++) {
+            printf("Cima\n");
+        }
+    }
+
+
+    // ===============================================
+    // NÍVEL MESTRE - Recursividade
+    // ===============================================
+
+    printf("\n=== Movimento do Bispo (Recursivo) ===\n");
+    moverBispoRecursivo(CASAS_BISPO);
+
+
+    // ===============================================
+    // Uso de continue e break
+    // ===============================================
+
+    printf("\n=== Exemplo com continue e break ===\n");
+
+    for (i = 1; i <= 5; i++) {
+
+        if (i == 3) {
+            continue; // Pula o movimento 3
+        }
+
+        if (i == 5) {
+            break; // Para no movimento 5
+        }
+
+        printf("Movimento %d executado\n", i);
+    }
 
     return 0;
 }
